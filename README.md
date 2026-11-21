@@ -1,5 +1,9 @@
-# Freeloader-Tracker-DBMS
-DBMS project for tracking group tasks, student contributions and peer reviews
+<img width="600"  alt="5" src="https://github.com/user-attachments/assets/ea8e16ea-284c-4b1c-bcd4-b3cf5c208e27" />
+<img width="600"  alt="4" src="https://github.com/user-attachments/assets/c8574ec6-fb8c-4b69-a056-4e87cb7591e6" />
+<img width="600"  alt="3" src="https://github.com/user-attachments/assets/23e570cd-7b1c-4750-a698-9a486e1ce064" />
+<img width="600"  alt="2" src="https://github.com/user-attachments/assets/a30de7fe-93a1-4c50-8312-c7195423983d" />
+<img width="600"  alt="1" src="https://github.com/user-attachments/assets/f517097e-5832-4a9d-bd3c-74e35d94005a" />
+
 
 # Freeloader Tracker & Task Auditor
 
