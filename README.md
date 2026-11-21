@@ -1,142 +1,151 @@
-<img width="600"  alt="5" src="https://github.com/user-attachments/assets/ea8e16ea-284c-4b1c-bcd4-b3cf5c208e27" />
-<img width="600"  alt="4" src="https://github.com/user-attachments/assets/c8574ec6-fb8c-4b69-a056-4e87cb7591e6" />
-<img width="600"  alt="3" src="https://github.com/user-attachments/assets/23e570cd-7b1c-4750-a698-9a486e1ce064" />
-<img width="600"  alt="2" src="https://github.com/user-attachments/assets/a30de7fe-93a1-4c50-8312-c7195423983d" />
-<img width="600"  alt="1" src="https://github.com/user-attachments/assets/f517097e-5832-4a9d-bd3c-74e35d94005a" />
+<div align="center">
 
+# 🎯 Freeloader Tracker & Task Auditor
 
-# Freeloader Tracker & Task Auditor
+### A DBMS-powered academic group project accountability system
 
-### Database Management Systems (DBMS) Project
+**Track tasks · Review contributions · Surface reliability scores · Audit overdue work**
 
-A web-based application designed to monitor student contributions, manage academic group projects, assign tasks, and identify freeloaders through peer reviews and reliability scores.
+![Python](https://img.shields.io/badge/Python-Flask-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![MySQL](https://img.shields.io/badge/Database-MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
+![JavaScript](https://img.shields.io/badge/Frontend-JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![HTML5](https://img.shields.io/badge/UI-HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+
+**[Features](#-features) · [Screenshots](#-project-screenshots) · [Database](#-database-design) · [Quick Start](#-quick-start) · [Demo](#-demonstration)**
+
+</div>
 
 ---
 
-## 1. Project Overview
+## 📌 Overview
 
-In academic group projects, it can be difficult to determine how much each student contributes. Some students complete most of the work, while others contribute very little.
+In academic group projects, it can be difficult to distinguish individual effort from the team's overall result. **Freeloader Tracker & Task Auditor** provides a local web application for managing project teams, assigning tasks, recording peer feedback, and calculating contribution-based reliability scores.
 
-**Freeloader Tracker & Task Auditor** addresses this problem by providing a centralized platform for managing projects, monitoring tasks, evaluating individual contributions, and identifying underperforming team members.
+The project demonstrates practical **relational database design**, including composite keys, foreign keys, joins, views, and a MySQL trigger.
 
-## 2. Technologies Used
+## ✨ Features
 
-| Component | Technology |
-|---|---|
-| Frontend | HTML, CSS, JavaScript |
-| Backend | Python, Flask |
-| Database | MySQL |
-| Database Connector | MySQL Connector for Python |
-| API Communication | REST APIs, JSON |
+| 👤 Admin | 👨‍🏫 Professor | 🎓 Student |
+|---|---|---|
+| Register students and professors | Create, update, and delete projects | View enrolled projects |
+| View and update user records | Assign students to project teams | Create and manage tasks |
+| Delete users | View team membership and task progress | Assign tasks to team members |
+| | View project-level reliability scores | Update task status |
+| | Review overdue-task alerts | Submit, edit, and view peer reviews |
 
-## 3. Main Features
+### How the contribution audit works
 
-### Admin Portal
-- Add and manage student accounts
-- Add and manage professor accounts
-- View registered users
-- Update and delete user details
+1. **Create a project** and enroll its student team.
+2. **Create and assign tasks** to team members.
+3. **Submit peer reviews** with a contribution weight from **1 to 5**.
+4. **Calculate reliability scores** using the average weight received.
+5. **Flag overdue tasks**: when a task's status changes to `Overdue`, a MySQL trigger creates an alert.
 
-### Professor Portal
-- Create, update, and delete projects
-- Assign students to project teams
-- View supervised projects
-- Monitor team members and assigned tasks
-- Check student reliability scores
-- View overdue task alerts
+> **Note:** The overdue alert is triggered by a **status change**, not by a background scheduler checking calendar deadlines.
 
-### Student Portal
-- View enrolled projects
-- Create and manage project tasks
-- Assign tasks to team members
-- Update task status
-- Submit peer reviews
-- View received and submitted reviews
-- Monitor individual contribution scores
+## 🖼️ Project Screenshots
 
-## 4. Database Design
+<div align="center">
 
-The project uses a relational MySQL database named `Project`.
+<table>
+<tr>
+<td align="center"><strong>Screenshot 1</strong><br/><img src="https://github.com/user-attachments/assets/ea8e16ea-284c-4b1c-bcd4-b3cf5c208e27" alt="Project screenshot 1" width="560" /></td>
+</tr>
+<tr>
+<td align="center"><strong>Screenshot 2</strong><br/><img src="https://github.com/user-attachments/assets/c8574ec6-fb8c-4b69-a056-4e87cb7591e6" alt="Project screenshot 2" width="560" /></td>
+</tr>
+<tr>
+<td align="center"><strong>Screenshot 3</strong><br/><img src="https://github.com/user-attachments/assets/23e570cd-7b1c-4750-a698-9a486e1ce064" alt="Project screenshot 3" width="560" /></td>
+</tr>
+<tr>
+<td align="center"><strong>Screenshot 4</strong><br/><img src="https://github.com/user-attachments/assets/a30de7fe-93a1-4c50-8312-c7195423983d" alt="Project screenshot 4" width="560" /></td>
+</tr>
+<tr>
+<td align="center"><strong>Screenshot 5</strong><br/><img src="https://github.com/user-attachments/assets/f517097e-5832-4a9d-bd3c-74e35d94005a" alt="Project screenshot 5" width="560" /></td>
+</tr>
+</table>
 
-**Main Tables:**
-1. Professor
-2. Student
-3. Project
-4. ProjectSupervision
-5. TeamMembership
-6. Task
-7. TaskAssignment
-8. PeerReview
-9. Alert
+</div>
 
-**Database Concepts Implemented:**
-- Primary Keys
-- Foreign Keys
-- Composite Keys
-- Referential Integrity
-- SQL Joins
-- Aggregate Functions
-- Database Views
-- Triggers
-- CRUD Operations
+## 🧰 Technology Stack
 
-### Database Views
+| Layer | Technology | Purpose |
+|:--|:--|:--|
+| Frontend | HTML, CSS, JavaScript | Interactive browser interface |
+| Backend | Python, Flask | REST API and application logic |
+| Cross-origin requests | Flask-CORS | Frontend-to-backend requests |
+| Database | MySQL | Relational data storage |
+| Connector | mysql-connector-python | Python–MySQL integration |
+| API data format | JSON | Client/server communication |
 
-**StudentReliability:** Calculates the average peer-review contribution score received by each student.
+## 🗄️ Database Design
 
-**ProjectReliabilityScore:** Calculates student contribution scores for individual projects.
+**Database name:** `Project`
 
-### Database Trigger
+| Table | Responsibility |
+|:--|:--|
+| `Professor` | Professor accounts |
+| `Student` | Student accounts |
+| `Project` | Project details and deadlines |
+| `ProjectSupervision` | Professor–project relationships |
+| `TeamMembership` | Student–project relationships |
+| `Task` | Project tasks and statuses |
+| `TaskAssignment` | Task assignments to enrolled students |
+| `PeerReview` | Contribution weights and feedback |
+| `Alert` | Overdue task alerts |
 
-**trg_task_overdue_alert**
+**Database views:** `StudentReliability` and `ProjectReliabilityScore`.
 
-Automatically inserts an alert into the `Alert` table when a task's status changes to `Overdue`.
+**Trigger:** `trg_task_overdue_alert` inserts a record into `Alert` when a task is updated to `Overdue` from another status.
 
-## 5. Project Structure
+**DBMS concepts:** primary keys, composite keys, foreign keys, referential integrity, SQL joins, aggregation, views, triggers, and CRUD operations.
+
+### Reliability scoring
+
+```text
+Reliability score = Sum of received contribution weights / Number of received reviews
+```
+
+Each peer-review contribution weight is between **1 and 5**. Scores reflect submitted peer ratings; students without reviews do not have a meaningful rated average yet.
+
+## 📂 Repository Structure
 
 ```text
 Freeloader-Tracker-DBMS/
-│
-├── app.py
-├── Website.html
-├── database.sql
-├── requirements.txt
-└── README.md
+├── app.py            # Flask backend and API routes
+├── Website.html      # Frontend (HTML, CSS, JavaScript)
+├── database.sql      # MySQL schema, views, and trigger
+├── requirements.txt  # Python dependencies
+└── README.md         # Documentation
 ```
 
-## 6. Installation and Setup
+## 🚀 Quick Start
 
 ### Prerequisites
-
-Install the following software:
 
 - Python 3
 - MySQL Server
 - MySQL Workbench (recommended)
 - A modern web browser
 
-### Step 1: Download the Project
-
-Download the repository as a ZIP file from GitHub and extract it.
-
-Alternatively, clone it:
+### 1. Download the repository
 
 ```bash
 git clone https://github.com/nipun-hue/Freeloader-Tracker-DBMS.git
+cd Freeloader-Tracker-DBMS
 ```
 
-### Step 2: Set Up the Database
+Alternatively, select **Code → Download ZIP** on GitHub and extract it.
 
-1. Open MySQL Workbench.
-2. Connect to your local MySQL Server.
-3. Open `database.sql`.
-4. Execute the SQL script to create the `Project` database, tables, views, and trigger.
+### 2. Initialize the database
 
-**Note:** The script creates a new database. If a database named `Project` already exists, review the script before executing it again.
+Open `database.sql` in MySQL Workbench and execute the script against your local MySQL server.
 
-### Step 3: Configure the Backend
+> The script starts with `CREATE DATABASE Project;`. If you already have a database named `Project`, do not rerun it blindly. Back up existing data and review the script first.
 
-Open `app.py` and locate the database connection:
+### 3. Configure your local MySQL connection
+
+In `app.py`, locate the connection configuration:
 
 ```python
 mysql.connector.connect(
@@ -147,81 +156,62 @@ mysql.connector.connect(
 )
 ```
 
-Enter your own local MySQL password in the `password` field if required.
+Set `password` to your **local** MySQL password if your server requires one. **Do not commit real credentials to a public repository.**
 
-Never publish your personal database password.
-
-### Step 4: Install Python Dependencies
-
-Open Command Prompt in the project directory and run:
+### 4. Install dependencies
 
 ```bash
-pip install -r requirements.txt
+python -m pip install -r requirements.txt
 ```
 
-### Step 5: Start the Backend
-
-Run:
+### 5. Start Flask
 
 ```bash
 python app.py
 ```
 
-The Flask backend starts at:
+The backend runs locally at `http://127.0.0.1:5000`. Keep the terminal open.
 
-`http://127.0.0.1:5000`
+### 6. Launch the website
 
-Keep this terminal running while using the website.
+Open `Website.html` in your browser. The frontend sends requests to `http://127.0.0.1:5000/api`.
 
-### Step 6: Open the Frontend
+## 🧪 Demo Walkthrough
 
-Open `Website.html` in your web browser.
+1. Sign in as the demo administrator and create professor/student accounts.
+2. Sign in as a professor, create a project, and enroll registered students.
+3. Sign in as a student, create tasks, and assign them to enrolled teammates.
+4. Submit peer reviews for students assigned to those tasks.
+5. Return to the professor dashboard to view project reliability scores.
+6. Set a task status to `Overdue` and inspect the generated alert.
 
-The frontend communicates with the Flask backend using REST API requests.
-
-## 7. How to Use the Application
-
-1. Log in as an administrator and create student and professor accounts.
-2. Log in as a professor and create a project.
-3. Assign registered students to the project team.
-4. Log in as a student to create tasks and assign responsibilities.
-5. Update task statuses as work progresses.
-6. Submit peer reviews for team members assigned to tasks.
-7. View reliability scores from the professor dashboard.
-8. Change a task's status to `Overdue` to demonstrate the automated database alert.
-
-### Demo Administrator Login
+<details>
+<summary><strong>Local demo administrator credentials</strong></summary>
 
 - **Role:** Admin
-- **User ID:** Any non-empty value, such as `admin`
+- **User ID:** Any non-empty value (for example, `admin`)
 - **Password:** `admin123`
 
-These are demonstration credentials defined in the original backend. This application is intended for local academic demonstration, not public production deployment.
+These credentials are hardcoded for the academic demonstration. The project is **not production-ready**: authentication and access controls would need to be redesigned before public deployment.
 
-## 8. Reliability Score Calculation
+</details>
 
-Student reliability is calculated using the average contribution weight received through peer reviews.
+## 🎥 Demonstration
 
-\[
-\text{Reliability Score} = \frac{\text{Sum of Contribution Weights}}{\text{Number of Reviews}}
-\]
+The project demonstration video can be linked here when available.
 
-Contribution weights range from **1 to 5**.
+<!-- Replace the line above with a link to your uploaded video. -->
 
-A lower score indicates lower peer-rated contribution, while a higher score indicates stronger peer-rated contribution.
+## 🔒 Security & Scope
 
-## 9. Project Demonstration
-
-A demonstration video can be linked here to showcase the Admin, Professor, and Student portals, task management, peer reviews, and database functionality.
-
-## 10. Conclusion
-
-The Freeloader Tracker & Task Auditor demonstrates how relational database concepts can be applied to a real-world academic problem.
-
-By combining project management, task tracking, peer reviews, reliability calculations, and automated database alerts, the application helps improve transparency and accountability in student group projects.
+This is a **local academic DBMS demonstration**, not a hosted production service. The backend uses a demo administrator password and Flask debug mode. Run it locally, avoid exposing the Flask server to the public internet, and never publish personal database credentials.
 
 ---
 
-**Project Type:** Academic DBMS Project
+<div align="center">
 
-**Technologies:** Python Flask, MySQL, HTML, CSS, JavaScript
+**Built as an academic Database Management Systems project**
+
+*Python · Flask · MySQL · HTML · CSS · JavaScript*
+
+</div>
